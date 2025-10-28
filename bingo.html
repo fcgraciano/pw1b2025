@@ -11,9 +11,9 @@
             margin:0;
             padding:0;
             height: 100%;
-            display: flex;
+            /* display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; */
         }
         table{
             background-color: #ffff00;
@@ -98,17 +98,92 @@
         //N 31-45
         //G 46-60
         //O 61-75
-        var b = []
-        var i = []
-        var n = []
-        for(var i = 31; i< 46; i++)
+        
+        function PreencherLista(numeroInicial, numeroFinal)
         {
-            n.push(i)
+            var retorno = []
+            for(var i = numeroInicial; i<= numeroFinal; i++)
+            {
+                retorno.push(i)
+            }
+            return retorno
         }
-        document.write(n)
-        var g = []
-        var o = []
+        var b = PreencherLista(1,15) 
+        var i = PreencherLista(16,30)
+        var n = PreencherLista(31,45) 
+        var g = PreencherLista(46,60) 
+        var o = PreencherLista(61,75)
+        var sorteio = PreencherLista(1,75) 
+
+
+        function NumeroAleatorio(numeroMinimo, numeroMaximo)
+        {
+            var retorno = Math.random()
+            retorno = (retorno*numeroMaximo)
+            retorno = Math.floor(retorno)
+            if(retorno >= numeroMinimo)
+            {
+                return retorno
+            }else{
+                return NumeroAleatorio(numeroMinimo, numeroMaximo)
+            }
+        }
+
+        document.write("<h1>"+ NumeroAleatorio(140,150)+"<\h1>" )
+
     </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    //  function NumeroAleatorio(numeroMinimo, numeroMaximo) {
+    //         var retorno = Math.floor(Math.random() * numeroMaximo)
+    //         if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo) {
+    //             return retorno
+    //         } else {
+    //             return NumeroAleatorio(numeroMinimo, numeroMaximo)
+    //         }
+    //     }
+
+        function MisturarArray(array) {
+            var aleatorio
+            var cont = array.length
+            var auxiliar
+            while (cont != 0) {
+                aleatorio = NumeroAleatorio(1, array.length)
+                cont--
+                auxiliar = array[cont]
+                array[cont] = array[aleatorio]
+                array[aleatorio] = auxiliar
+            }
+            return array
+
+        }
+
+</script>
